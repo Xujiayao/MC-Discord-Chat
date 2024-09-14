@@ -37,7 +37,6 @@
 	"utils.utils.gscMessage.noResult": "\n无结果",
 	"utils.utils.gscMessage.truncated": "由于通过 Discord 发送的消息不能超过 2000 个字符，因此排行榜已被截断。你可以在游戏内执行 [/dmcc stats] 命令来查看完整的排行榜。",
 
-
 	"utils.utils.ubCommands.help": "获取可用命令列表",
 	"utils.utils.ubCommands.info": "查询服务器运行状态",
 	"utils.utils.ubCommands.stats": "查询该统计信息的排行榜",
@@ -53,18 +52,13 @@
 	"utils.utils.ubCommands.reload": "重新加载 Discord-MC-Chat 配置文件",
 	"utils.utils.ubCommands.stop": "停止服务器",
 
-	"message.unformattedResponseMessage": "    ┌──── <%name%> %message%",
-	"message.unformattedChatMessage": "[%server%] <%name%> %message%",
-	"message.unformattedOtherMessage": "[%server%] %message%",
-	"message.unformattedCommandNotice": "%name% 执行了 %command% 命令！",
+	"message.responseMessage": "<dark_gray><bold>    ┌────</bold></dark_gray> <color:{roleColor}><{name}></color> <dark_gray>{message}</dark_gray>",
+	"message.chatMessage": "<blue><bold>[{server}]</bold></blue> <color:{roleColor}><{name}></color> <gray>{message}</gray>",
+	"message.otherMessage": "<blue><bold>[{server}]</bold></blue> <gray>{message}</gray>",
+	"message.commandNotice": "<color:{roleColor}>{name}</color> <gray>执行了 {command} 命令！</gray>",
 
-	"message.formattedResponseMessage": "[{\"text\":\"    ┌──── \",\"bold\":true,\"color\":\"dark_gray\"},{\"text\":\"<%name%> \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"dark_gray\"}]",
-	"message.formattedChatMessage": "[{\"text\":\"[%server%] \",\"bold\":true,\"color\":\"blue\"},{\"text\":\"<%name%> \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"gray\"}]",
-	"message.formattedOtherMessage": "[{\"text\":\"[%server%] \",\"bold\":true,\"color\":\"blue\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"gray\"}]",
-	"message.formattedCommandNotice": "[{\"text\":\"%name% \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"执行了 %command% 命令！\",\"bold\":false,\"color\":\"gray\"}]",
-
-	"message.messageWithoutWebhook": "<%name%> %message%",
-	"message.messageWithoutWebhookForMultiServer": "[%server%] <%name%> %message%",
+	"message.messageWithoutWebhook": "<{name}> {message}",
+	"message.messageWithoutWebhookForMultiServer": "[{server}] <{name}> {message}",
 
 	"message.serverStarted": "**服务器已启动！**",
 	"message.serverStopped": "**服务器已关闭！**",
@@ -72,15 +66,15 @@
 	"message.joinServer": "**%playerName% 加入了游戏**",
 	"message.leftServer": "**%playerName% 离开了游戏**",
 
-	"message.deathMessage": "**%deathMessage%**",
+	"message.deathMessage": "**{deathMessage}**",
 
-	"message.advancementTask": "**%playerName% 达成了进度 [%advancement%]**\n*%description%*",
-	"message.advancementChallenge": "**%playerName% 完成了挑战 [%advancement%]**\n*%description%*",
-	"message.advancementGoal": "**%playerName% 达成了目标 [%advancement%]**\n*%description%*",
+	"message.advancementTask": "**{playerName} 达成了进度 [{advancement}]**\n*{description}*",
+	"message.advancementChallenge": "**{playerName} 完成了挑战 [{advancement}]**\n*{description}*",
+	"message.advancementGoal": "**{playerName} 达成了目标 [{advancement}]**\n*{description}*",
 
-	"message.highMspt": "**服务器 MSPT (%mspt%) 高于 %msptLimit%！**",
+	"message.highMspt": "**服务器 MSPT ({mspt}) 高于 {msptLimit}！**",
 
-	"message.offlineChannelTopic": ":x: 服务器离线 | 最后更新于：<t:%lastUpdateTime%:f>",
-	"message.onlineChannelTopic": ":white_check_mark: %onlinePlayerCount%/%maxPlayerCount% 位玩家在线 | 服务器玩家总数：%uniquePlayerCount% | 服务器于 <t:%serverStartedTime%:R> 启动 | 最后更新于：<t:%lastUpdateTime%:f>",
-	"message.onlineChannelTopicForMultiServer": ":white_check_mark: %onlinePlayerCount%/%maxPlayerCount% 位玩家在线 | 服务器玩家总数：%uniquePlayerCount% | %onlineServerCount% 个服务器在线 [%onlineServerList%] | 服务器于 <t:%serverStartedTime%:R> 启动 | 最后更新于：<t:%lastUpdateTime%:f>"
+	"message.offlineChannelTopic": ":x: 服务器离线 | 最后更新于：<t:{lastUpdateTime}:f>",
+	"message.onlineChannelTopic": ":white_check_mark: {onlinePlayerCount}/{maxPlayerCount} 位玩家在线 | 服务器玩家总数：{uniquePlayerCount} | 服务器于 <t:{serverStartedTime}:R> 启动 | 最后更新于：<t:{lastUpdateTime}:f>",
+	"message.onlineChannelTopicForMultiServer": ":white_check_mark: {onlinePlayerCount}/{maxPlayerCount} 位玩家在线 | 服务器玩家总数：{uniquePlayerCount} | {onlineServerCount} 个服务器在线 [{onlineServerList}] | 服务器于 <t:{serverStartedTime}:R> 启动 | 最后更新于：<t:{lastUpdateTime}:f>"
 }

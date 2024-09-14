@@ -1,6 +1,7 @@
 package com.xujiayao.discord_mc_chat;
 
 import com.xujiayao.discord_mc_chat.minecraft.MinecraftEventListener;
+import com.xujiayao.discord_mc_chat.utils.PlaceholderParser;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -176,14 +177,16 @@ public class Main implements DedicatedServerModInitializer {
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> {
 			SERVER_STARTED_TIME = Long.toString(Instant.now().getEpochSecond());
 
+			SERVER = server;
+
 			if (CONFIG.generic.announceServerStartStop) {
-				CHANNEL.sendMessage(Translations.translateMessage("message.serverStarted")).queue();
+				String message = PlaceholderParser.parseServerStarted().getString();
+
+				CHANNEL.sendMessage(message).queue();
 				if (CONFIG.multiServer.enable) {
-					MULTI_SERVER.sendMessage(false, false, false, null, Translations.translateMessage("message.serverStarted"));
+					MULTI_SERVER.sendMessage(false, false, false, null, message);
 				}
 			}
-
-			SERVER = server;
 
 			Utils.setBotPresence();
 
@@ -221,8 +224,9 @@ public class Main implements DedicatedServerModInitializer {
 			}
 
 			if (CONFIG.generic.updateChannelTopic) {
-				String topic = Translations.translateMessage("message.offlineChannelTopic")
-						.replace("%lastUpdateTime%", Long.toString(Instant.now().getEpochSecond()));
+				String topic = PlaceholderParser.parseOfflineChannelTopic(
+						Long.toString(Instant.now().getEpochSecond())
+				).getString();
 
 				CHANNEL.getManager().setTopic(topic).queue();
 				if (!CONFIG.generic.consoleLogChannelId.isEmpty()) {
@@ -230,16 +234,18 @@ public class Main implements DedicatedServerModInitializer {
 				}
 			}
 
+			String message = PlaceholderParser.parseServerStopped().getString();
+
 			if (CONFIG.multiServer.enable) {
 				if (CONFIG.generic.announceServerStartStop) {
-					MULTI_SERVER.sendMessage(false, false, false, null, Translations.translateMessage("message.serverStopped"));
+					MULTI_SERVER.sendMessage(false, false, false, null, message);
 				}
 				MULTI_SERVER.bye();
 				MULTI_SERVER.stopMultiServer();
 			}
 
 			if (CONFIG.generic.announceServerStartStop) {
-				CHANNEL.sendMessage(Translations.translateMessage("message.serverStopped"))
+				CHANNEL.sendMessage(message)
 						.submit()
 						.whenComplete((v, ex) -> shutdown());
 			} else {

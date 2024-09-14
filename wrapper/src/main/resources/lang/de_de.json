@@ -52,15 +52,10 @@
 	"utils.utils.ubCommands.reload": "Lade Discord-MC-Chat Konfigurations-Datei neu",
 	"utils.utils.ubCommands.stop": "Stoppe den Server",
 
-	"message.unformattedResponseMessage": "    ┌──── <%name%> %message%",
-	"message.unformattedChatMessage": "[%server%] <%name%> %message%",
-	"message.unformattedOtherMessage": "[%server%] %message%",
-	"message.unformattedCommandNotice": "%name% hat %command% ausgeführt!",
-
-	"message.formattedResponseMessage": "[{\"text\":\"    ┌──── \",\"bold\":true,\"color\":\"dark_gray\"},{\"text\":\"<%name%> \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"dark_gray\"}]",
-	"message.formattedChatMessage": "[{\"text\":\"[%server%] \",\"bold\":true,\"color\":\"blue\"},{\"text\":\"<%name%> \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"gray\"}]",
-	"message.formattedOtherMessage": "[{\"text\":\"[%server%] \",\"bold\":true,\"color\":\"blue\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"gray\"}]",
-	"message.formattedCommandNotice": "[{\"text\":\"%name% \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"executed %command% command!\",\"bold\":false,\"color\":\"gray\"}]",
+	"message.responseMessage": "[{\"text\":\"    ┌──── \",\"bold\":true,\"color\":\"dark_gray\"},{\"text\":\"<%name%> \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"dark_gray\"}]",
+	"message.chatMessage": "[{\"text\":\"[%server%] \",\"bold\":true,\"color\":\"blue\"},{\"text\":\"<%name%> \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"gray\"}]",
+	"message.otherMessage": "[{\"text\":\"[%server%] \",\"bold\":true,\"color\":\"blue\"},{\"text\":\"%message%\",\"bold\":false,\"color\":\"gray\"}]",
+	"message.commandNotice": "[{\"text\":\"%name% \",\"bold\":false,\"color\":\"%roleColor%\"},{\"text\":\"executed %command% command!\",\"bold\":false,\"color\":\"gray\"}]",
 
 	"message.messageWithoutWebhook": "<%name%> %message%",
 	"message.messageWithoutWebhookForMultiServer": "[%server%] <%name%> %message%",

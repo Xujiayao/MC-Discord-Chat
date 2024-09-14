@@ -577,9 +577,10 @@ public class Utils {
 				double mspt = getTickInfo().getB();
 
 				if (mspt > CONFIG.generic.msptLimit) {
-					String message = Translations.translateMessage("message.highMspt")
-							.replace("%mspt%", String.format("%.2f", mspt))
-							.replace("%msptLimit%", Integer.toString(CONFIG.generic.msptLimit));
+					String message = PlaceholderParser.parseHighMspt(
+							String.format("%.2f", mspt),
+							Integer.toString(CONFIG.generic.msptLimit)
+					).getString();
 
 					CHANNEL.sendMessage(message).queue();
 					if (CONFIG.multiServer.enable) {
@@ -606,13 +607,14 @@ public class Utils {
 					} catch (Exception ignored) {
 					}
 
-					String topic = Translations.translateMessage("message.onlineChannelTopic")
-							.replace("%onlinePlayerCount%", Integer.toString(SERVER.getPlayerCount()))
-							.replace("%maxPlayerCount%", Integer.toString(SERVER.getMaxPlayers()))
-							.replace("%uniquePlayerCount%", Integer.toString(uniquePlayerCount))
-							.replace("%serverStartedTime%", SERVER_STARTED_TIME)
-							.replace("%lastUpdateTime%", Long.toString(epochSecond))
-							.replace("%nextUpdateTime%", Long.toString(epochSecond + CONFIG.generic.channelTopicUpdateInterval / 1000));
+					String topic = PlaceholderParser.parseOnlineChannelTopic(
+							Integer.toString(SERVER.getPlayerCount()),
+							Integer.toString(SERVER.getMaxPlayers()),
+							Integer.toString(uniquePlayerCount),
+							SERVER_STARTED_TIME,
+							Long.toString(epochSecond),
+							Long.toString(epochSecond + CONFIG.generic.channelTopicUpdateInterval / 1000)
+					).getString();
 
 					CHANNEL.getManager().setTopic(topic).queue();
 
