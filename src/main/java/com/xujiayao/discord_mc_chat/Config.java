@@ -57,7 +57,7 @@ public class Config {
 		public boolean whitelistRequiresAdmin = true;
 
 		public boolean notifyUpdates = true;
-		public boolean mentionAdminsForUpdates = true;
+		public boolean mentionAdminsForUpdates = false;
 
 		public boolean updateChannelTopic = true;
 		public int channelTopicUpdateInterval = 600000;
